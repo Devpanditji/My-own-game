@@ -40,12 +40,12 @@ function setup() {
   bombGroup =  new Group();
   //bomb =createSprite(400,400,50,50);
 //bomb.addImage(bombimage)
-gameover = createSprite(500,310,60,60)
+gameover = createSprite(windowWidth-500,windowHeight-310,60,60)
 gameover.scale=3;
 gameover.addImage(gameoverimage)
 gameover.visible = false;
 
-reset = createSprite(510,20,60,60)
+reset = createSprite(windowWidth-510,windowHeight-610,60,60)
 reset.addImage(resetimage)
 reset.scale=0.2;
 
@@ -53,40 +53,40 @@ reset.scale=0.2;
 
 
 
-ball = createSprite(515,310,20,20);
+ball = createSprite(windowWidth-504,windowHeight-310,20,20);
 //ball.debug = true ;
 ball.setCollider("circle",0,0,20);
 ball.addImage(ballimage);
 ball.scale=0.3;
 
- goal =createSprite(1000,310,100,20);
+ goal =createSprite(windowWidth-25,windowHeight-310,100,20);
  
- goal1 =createSprite(25,310,20,20);
+ goal1 =createSprite(windowWidth-1000,310,20,20);
  goal1.addImage(goal1image);
  goal.addImage(goalimage)
-car1 =createSprite(860,310,20,20);
+car1 =createSprite(windowWidth-160,windowHeight-310,20,20);
 
-car2 =createSprite(160,310,20,20) ;
+car2 =createSprite(windowWidth-862,windowHeight-310,20,20) ;
 
 car1.addImage(car1image);
 car1.scale=0.3;
 car2.addImage(car2image);
 car2.scale=0.5;
-boder1 =createSprite(513,30,956,10)
+boder1 =createSprite(windowWidth-513,windowHeight-30,956,10)
 boder1.shapeColor = "white"
-boder2 =createSprite(513,593,956,10)
+boder2 =createSprite(windowWidth-513,windowHeight-593,956,10)
 boder2.shapeColor = "white"
-boder3 =createSprite(39,135,8,220)
+boder3 =createSprite(windowWidth-985,windowHeight-135,8,220)
 boder3.shapeColor = "white"
-boder4 =createSprite(39,480,8,220)
+boder4 =createSprite(windowWidth-985,windowHeight-480,8,220)
 boder4.shapeColor = "white"
-boder5 =createSprite(985,480,8,220)
+boder5 =createSprite(windowWidth-39,windowHeight-480,8,220)
 boder5.shapeColor = "white"
-boder6 =createSprite(985,137,8,220)
+boder6 =createSprite(windowWidth-39,windowHeight-137,8,220)
 boder6.shapeColor = "white"
-boder7 =createSprite(15,315,8,77)
+boder7 =createSprite(windowWidth-15,windowHeight-315,8,77)
 boder7.shapeColor = "white"
-boder8 =createSprite(1010,315,8,77)
+boder8 =createSprite(windowWidth-1010,windowHeight-315,8,77)
 boder8.shapeColor = "white"
 
 }
@@ -160,42 +160,42 @@ function draw() {
       gameState=END;
       //footballshotsound.setVolume(5);
     }
-    if (keyIsDown(UP_ARROW)) {
+    if (keyIsDown(UP_ARROW)||touches.length>0) {
       car1.velocityY = -15 ;
       car1.velocityX = 0 ;
          
      }
-     if (keyIsDown(DOWN_ARROW)) {
+     if (keyIsDown(DOWN_ARROW)||touches.length>0) {
       car1.velocityY = 15 ;
       car1.velocityX = 0 ;
          
      }
-     if (keyIsDown(RIGHT_ARROW)) {
+     if (keyIsDown(RIGHT_ARROW)||touches.length>0) {
       car1.velocityY = 0 ;
       car1.velocityX = 15 ;
          
      }
-     if (keyIsDown(LEFT_ARROW)) {
+     if (keyIsDown(LEFT_ARROW)||touches.length>0) {
       car1.velocityY = 0 ;
       car1.velocityX = -15 ;
          
      }
-     if (keyIsDown(87)) {
+     if (keyIsDown(87)||touches.length>0) {
       car2.velocityY = -15 ;
       car2.velocityX = 0 ;
          
      }
-     if (keyIsDown(83)) {
+     if (keyIsDown(83)||touches.length>0) {
       car2.velocityY = 15 ;
       car2.velocityX = 0 ;
          
      }
-     if (keyIsDown(68)) {
+     if (keyIsDown(68)||touches.length>0) {
       car2.velocityY = 0 ;
       car2.velocityX = 15 ;
          
      }
-     if (keyIsDown(65)) {
+     if (keyIsDown(65)||touches.length>0) {
       car2.velocityY = 0 ;
       car2.velocityX = -15 ;
     }
@@ -313,7 +313,7 @@ function draw() {
 //}
    textSize(20);
    fill(255);
-   text("PLAYER1score: "+score2, width-200,20);
+   text("PLAYER1score: "+score2,windowWidth-200,20);
    
    if (ball.collide(goal)) {
    score1=score1+1
@@ -322,7 +322,7 @@ function draw() {
    }
    textSize(20);
    fill(255);
-   text("PLAYER2score: "+score1, width-990,20);
+   text("PLAYER2score: "+score1, windowWidth-990,20);
    
    if (ball.collide(goal1)) {
     score2=score2+1
